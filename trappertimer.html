@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <title>TiF Pixels Timer</title>
+    <style>
+      body {
+        background-color: #000000;
+      }
+      h1 {
+        text-align: center;
+        font-size: 22px;
+        color: #ffffff;
+        font-family: "Pixel";
+      }
+      h2 {
+        text-align: center;
+        font-size: 18px;
+        color: #ffffff;
+        font-family: "Pixel";
+      }
+      button {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        font-size: 12px;
+        font-weight: bold;
+        background-color: #ff0000;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Trappers in the Field</h1>
+    <h2>PIXELS Farming Timer</h2>
+    <button id="timer1">
+      <span>Butterberry Timer - 40 mins</span>
+    </button>
+
+    <button id="timer2">
+      <span>Egg Timer - 1 hr</span>
+    </button>
+
+    <button id="timer3">
+      <span>GrumpBerry Timer - 3 hrs</span>
+    </button>
+
+    <button id="timer4">
+      <span>Ironite Timer - 1.5 hrs</span>
+    </button>
+
+    <button id="resetTimer">Reset Timer</button>
+
+    <audio id="bell" src="bell.mp3" preload="auto"></audio>
+
+    <script>
+      // Update timer values every second
+      function updateTimerValues() {
+        let timer1 = document.getElementById("timer1")
+        let timer2 = document.getElementById("timer2")
+        let timer3 = document.getElementById("timer3")
+        let timer4 = document.getElementById("timer4")
+        // ...
+
+        // Play bell when timer is complete
+        let bell = document.getElementById("bell")
+        if (
+          timer1.innerHTML === "0 mins" ||
+          timer2.innerHTML === "0 mins" ||
+          timer3.innerHTML === "0 mins" ||
+          timer4.innerHTML === "0 mins"
+        ) {
+          bell.play()
+        }
+      }
+      setInterval(updateTimerValues, 1000)
+
+      // Reset timer
+      let resetTimer = document.getElementById("resetTimer")
+      resetTimer.addEventListener("click", function () {
+        timer1.innerHTML = "40 mins"
+        timer2.innerHTML = "1 hr"
+        timer3.innerHTML = "3 hrs"
+        timer4.innerHTML = "1.5 hrs"
+      })
+    </script>
+  </body>
+</html>
